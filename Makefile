@@ -1,9 +1,16 @@
-BIN=pub_example
+PUB_SYNC=pub_sync_example
+PUB_ASYNC=pub_async_example
 
 all: build
 
-build:
-	gcc pub-example.c -o ${BIN} -lpaho-mqtt3c
+build: pub-sync pub-async
+
+pub-sync:
+	gcc pub-sync-example.c -o ${PUB_SYNC} -lpaho-mqtt3c
+
+pub-async:
+	gcc pub-async-example.c -o ${PUB_ASYNC} -lpaho-mqtt3c
 
 clean:
-	rm -f ${BIN}
+	rm -f ${PUB_SYNC}
+	rm -f ${PUB_ASYNC}
